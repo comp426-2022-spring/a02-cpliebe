@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Autograder Out of Office Message",
+      "setup": "",
+      "run": "echo \"I am very tired and need a break for a couple of days. So, you will have to test your own scripts in the meantime. <3 - Autograder\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
