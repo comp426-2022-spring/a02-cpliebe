@@ -33,7 +33,7 @@
     {
       "name": "Guess coin flip with no argument",
       "setup": "",
-      "run": "node guess-flip.js",
+      "run": "node guess-flip.js 2>&1",
       "input": "",
       "output": "(Error:?\\s?)no\\sinput.*",
       "comparison": "regex",
