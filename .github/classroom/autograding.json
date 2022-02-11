@@ -1,14 +1,64 @@
 {
   "tests": [
     {
-      "name": "Autograder Out of Office Message",
-      "setup": "",
-      "run": "echo \"I am very tired and need a break for a couple of days. So, you will have to test your own scripts in the meantime. <3 - Autograder\"",
+      "name": "Flip one coin",
+      "setup": "SHELL=/bin/bash",
+      "run": "node flip.js",
       "input": "",
-      "output": "",
+      "output": "/^[\"']?(heads?|tails?)[\"']?$/igm",
+      "comparison": "regex",
+      "timeout": 10,
+      "points": 10000
+    },
+    {
+      "name": "Flip many coins with no argument",
+      "setup": "SHELL=/bin/bash && ",
+      "run": "node flips.js",
+      "input": "",
+      "output": "/^(\\[|\\{)\\s?[\"']?(heads?|tails?)[\"']?\\s?:\\s?[\"']?1[\"']?\\s?(\\]|\\})$/igm",
+      "comparison": "regex",
+      "timeout": 10,
+      "points": 10000
+    },
+    {
+      "name": "Flip many coins with random number argument",
+      "setup": "SHELL=/bin/bash && NUMBER=\"$(shuf -i 100-500 -n 1)\"",
+      "run": "node flips.js --number=$NUMBER",
+      "input": "",
+      "output": "/^(\\[|\\{)\\s?[\"']?(heads?|tails?)[\"']?\\s?:\\s?[\"']?\\b[12345][0-9][0-9]\\b[\"']?(,?\\s?[\"']?(heads?|tails?)[\"']?\\s?:\\s?[\"']?\\b[12345][0-9][0-9]\\b[\"']?)?\\s?(\\]|\\})$/igm",
+      "comparison": "regex",
+      "timeout": 10,
+      "points": 10000
+    },
+    {
+      "name": "Guess coin flip with no argument",
+      "setup": "SHELL=/bin/bash",
+      "run": "node guess-flip.js",
+      "input": "",
+      "output": "/^(Error:?\\s?)no\\sinput.*$/igm",
+      "comparison": "regex",
+      "timeout": 10,
+      "points": 5000
+    },
+    {
+      "name": "Guess flip with argument other than heads or tails",
+      "setup": "SHELL=/bin/bash && CALL=\"$(shuf -n1 /usr/share/dict/words)\"",
+      "run": "node guess-flip.js --call=$CALL",
+      "input": "",
+      "output": "/^Usage:\\s?node\\sguess-flip(.js)?\\s--call=(\\[|\\(|\\{)?\\s?(heads?|tails?)\\s?\\|\\s?[\"']?(heads?|tails?)[\"']?\\s?(\\]|\\)\\}).*$/igm",
       "comparison": "included",
       "timeout": 10,
-      "points": null
+      "points": 10000
+    },
+    {
+      "name": "Guess flip heads or tails",
+      "setup": "SHELL=/bin/bash && printf \"heads\\ntails\\n\" > wordfile && CALL=$(shuf -n1 ./wordfile)",
+      "run": "node guess-flip --call=$CALL",
+      "input": "",
+      "output": "/^(\\[|\\{)\\s?[\"']?call[\"']?\\s?:\\s?[\"']?(heads?|tails?)[\"']?\\s?,\\s?[\"']?flip[\"']?\\s?:\\s?[\"']?(heads?|tails?)[\"']?\\s?,\\s?[\"']?results?[\"']?\\s?:\\s?[\"']?(win|lose)[\"']?\\s?(\\]|\\})$/gmi",
+      "comparison": "regex",
+      "timeout": 10,
+      "points": 10000
     }
   ]
 }
