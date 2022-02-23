@@ -15,7 +15,7 @@
       "setup": "npm install",
       "run": "node flips.js",
       "input": "",
-      "output": "(\\[|\\{)\\s?[\"']?(heads?|tails?)[\"']?\\s?:\\s?[\"']?1[\"']?\\s?(\\]|\\})",
+      "output": "(\\[?\\s?['\"]?(heads|tails)['\"]?.*\\])(\\n|\\t|\\s|\\r)+(\\{.*\\s?['\"]?(heads|tails)\\s?['\"]?:\\s?['\"]?1['\"]?\\s?\\})",
       "comparison": "regex",
       "timeout": 10,
       "points": 10000
@@ -25,7 +25,7 @@
       "setup": "",
       "run": "NUMBER=\"$(shuf -i 100-500 -n 1)\" && node flips.js --number=$NUMBER",
       "input": "",
-      "output": "(\\[|\\{)\\s?[\"']?(heads?|tails?)[\"']?\\s?:\\s?[\"']?[12345]?[0-9][0-9][\"']?(,?\\s?[\"']?(heads?|tails?)[\"']?\\s?:\\s?[\"']?\\b[12345][0-9][0-9]\\b[\"']?)?\\s?(\\]|\\})",
+      "output": "(\\[?\\s?['\"]?(heads|tails)['\"]?.*\\])(\\n|\\t|\\s|\\r)+(\\{.*\\s?['\"]?(heads|tails)\\s?['\"]?:\\s?['\"]?[0-9]{1,3}['\"]?\\s?\\})",
       "comparison": "regex",
       "timeout": 10,
       "points": 10000
@@ -35,7 +35,7 @@
       "setup": "",
       "run": "node guess-flip.js 2>&1",
       "input": "",
-      "output": "(Error:?\\s?)no\\sinput.*",
+      "output": ".*[Ee]rror\\s?:?\\s?no\\sinput.*",
       "comparison": "regex",
       "timeout": 10,
       "points": 5000
@@ -45,7 +45,7 @@
       "setup": "SHELL=/bin/bash",
       "run": "node guess-flip.js --call=notaword",
       "input": "",
-      "output": "Usage:\\s?node\\sguess-flip(.js)?\\s--call=(\\[|\\(|\\{)?\\s?(heads?|tails?)\\s?\\|\\s?[\"']?(heads?|tails?)[\"']?\\s?(\\]|\\)\\}).*",
+      "output": ".*Usage:\\s?node\\sguess-flip(.js)?\\s--call=(\\[|\\(|\\{)?\\s?(heads?|tails?)\\s?\\|\\s?[\"']?(heads?|tails?)[\"']?\\s?(\\]|\\)\\}).*",
       "comparison": "regex",
       "timeout": 10,
       "points": 10000
