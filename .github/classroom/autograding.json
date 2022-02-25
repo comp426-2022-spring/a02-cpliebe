@@ -25,7 +25,7 @@
       "setup": "",
       "run": "NUMBER=\"$(shuf -i 100-500 -n 1)\" && node flips.js --number=$NUMBER",
       "input": "",
-      "output": "(\\[?\\s?['\"]?(heads|tails)['\"]?.*\\])(\\n|\\t|\\s|\\r)+(\\{.*\\s?['\"]?(heads|tails)\\s?['\"]?:\\s?['\"]?[0-9]{1,3}['\"]?\\s?\\})",
+      "output": "\\{(\\s?['\"]?(heads|tails)\\s?['\"]?:\\s?['\"]?[0-9]{1,3}['\"]?\\s?,)?\\s?['\"]?(heads|tails)\\s?['\"]?:\\s?['\"]?[0-9]{1,3}['\"]?\\s?\\}",
       "comparison": "regex",
       "timeout": 10,
       "points": 10000
