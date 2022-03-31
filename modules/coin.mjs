@@ -14,10 +14,8 @@
  * 
  */
 
-function coinFlip() {
-  const options = ["heads", "tails"];
-  return options[Math.floor(Math.random() * options.length)];
-
+ function coinFlip() {
+  return Math.floor(Math.random() * 2) == 0 ? "heads" : "tails"
 }
 
 /** Multiple coin flips
@@ -40,12 +38,11 @@ function coinFlip() {
  */
 
 function coinFlips(flips) {
-  const i = 0;
-  const arr = [];
-  while (i < flips) {
-  const options = ["heads", "tails"];
-   arr.push(options[Math.floor(Math.random() * options.length)]);
+  const results = [];
+  for(let i = 0; i < flips; i++) {
+    results[i] = coinFlip();
   }
+  return results;
 }
 
 /** Count multiple flips
@@ -62,20 +59,16 @@ function coinFlips(flips) {
  */
 
 function countFlips(array) {
-
-  let headsMap = new Map(["heads", 0]);
-  let tailsMap = new Map(["tails", 0]);
-
-  for (const i = 0; i < array.length; i++) {
-    if (array[i].equals("heads")) {
-      headsMap.set("heads", hashmap.get("heads") + 1);
-    }
-    if (array[i].equals("tails")) {
-      headsMap.set("tails", hashmap.get("tails") + 1);
-    }
+  let hNum = 0;
+  let tailCount = 0;
+  for (var i = 0; i < array.length; i++) {
+    if(array[i].localeCompare('heads')) {
+      headCount++;
+    } else {
+      tailCount++;
+    } // we can assume only heads or tails as we are providing the array ourselves
   }
-  return { heads: headsMap.get("heads"), tails: tailsMap.get("tails")}
-
+  return {heads: headCount,tails: tailCount};
 }
 
 /** Flip a coin!
@@ -90,7 +83,8 @@ function countFlips(array) {
  */
 
 function flipACoin(call) {
-
+  let flip = coinFlip();
+  return {call: call, flip: flip, result: flip == call ? "win" : "lose" }
 }
 
 
@@ -98,3 +92,4 @@ function flipACoin(call) {
  * 
  * Export all of your named functions
 */
+export {coinFlip, coinFlips, countFlips, flipACoin};
