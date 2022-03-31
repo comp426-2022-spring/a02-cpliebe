@@ -15,6 +15,8 @@
  */
 
 function coinFlip() {
+  const options = ["heads", "tails"];
+  return options[Math.floor(Math.random() * options.length)];
 
 }
 
@@ -38,7 +40,12 @@ function coinFlip() {
  */
 
 function coinFlips(flips) {
-
+  const i = 0;
+  const arr = [];
+  while (i < flips) {
+  const options = ["heads", "tails"];
+   arr.push(options[Math.floor(Math.random() * options.length)]);
+  }
 }
 
 /** Count multiple flips
@@ -55,6 +62,19 @@ function coinFlips(flips) {
  */
 
 function countFlips(array) {
+
+  let headsMap = new Map(["heads", 0]);
+  let tailsMap = new Map(["tails", 0]);
+
+  for (const i = 0; i < array.length; i++) {
+    if (array[i].equals("heads")) {
+      headsMap.set("heads", hashmap.get("heads") + 1);
+    }
+    if (array[i].equals("tails")) {
+      headsMap.set("tails", hashmap.get("tails") + 1);
+    }
+  }
+  return { heads: headsMap.get("heads"), tails: tailsMap.get("tails")}
 
 }
 
