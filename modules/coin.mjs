@@ -76,10 +76,11 @@ function countFlips(array) {
   var headCount = 0;
   var tailCount = 0;
 
+  
   for (var i = 0; i < array.length; i++) {
-    if(array[i] == "heads") {
+    if (array[i] == "heads") {
       headCount +=1;
-    } else {
+    } else if (array[i] == "tails") {
       tailCount += 1;
   }
 }
@@ -112,7 +113,7 @@ function flipACoin(call) {
   if (flip == call) {
     outcome = "win"
   }
-  else {
+  else  {
     outcome = "lose"
   }
   return {"call": call, "flip": flip, "outcome": outcome}
