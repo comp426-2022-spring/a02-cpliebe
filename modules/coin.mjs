@@ -15,7 +15,14 @@
  */
 
  function coinFlip() {
-  return Math.floor(Math.random() * 2) == 0 ? "heads" : "tails"
+   var random = Math.random()
+
+   if (random > 0.5) {
+     return "heads"
+   }
+   else {
+     return "tails"
+   }
 }
 
 /** Multiple coin flips
@@ -38,11 +45,18 @@
  */
 
 function coinFlips(flips) {
-  const results = [];
-  for(let i = 0; i < flips; i++) {
-    results[i] = coinFlip();
+  var array = new Array(flips)
+
+  for (var i = 0; i < flips; i ++) {
+    var random = Math.random()
+    if (random<0.5) {
+      array[i] = "heads"
+    }
+    else {
+      array[i] = "tails"
+    }
   }
-  return results;
+  return array
 }
 
 /** Count multiple flips
@@ -59,16 +73,17 @@ function coinFlips(flips) {
  */
 
 function countFlips(array) {
-  let hNum = 0;
-  let tailCount = 0;
+  var hNum = 0;
+  var tailCount = 0;
+
   for (var i = 0; i < array.length; i++) {
-    if(array[i].localeCompare('heads')) {
-      headCount++;
+    if(array[i] == "heads") {
+      headCount += 1;
     } else {
-      tailCount++;
-    } // we can assume only heads or tails as we are providing the array ourselves
+      tailCount += 1;
   }
-  return {heads: headCount,tails: tailCount};
+}
+  return {heads: headCount,tails: tailCount}
 }
 
 /** Flip a coin!
@@ -83,8 +98,24 @@ function countFlips(array) {
  */
 
 function flipACoin(call) {
-  let flip = coinFlip();
-  return {call: call, flip: flip, result: flip == call ? "win" : "lose" }
+  var outcome = ""
+  var flip = ""
+  var num = Math.random()
+
+  if (num < 0.5) {
+    flip = "heads"
+  }
+  else { 
+    flip = "tails"
+  }
+  
+  if (flip == call) {
+    outcome = "win"
+  }
+  else {
+    outcome = "lose"
+  }
+  return {"call": call, "flip": flip, "outcome": outcome}
 }
 
 
@@ -92,4 +123,4 @@ function flipACoin(call) {
  * 
  * Export all of your named functions
 */
-export {coinFlip, coinFlips, countFlips, flipACoin};
+export {coinFlip, coinFlips, countFlips, flipACoin}
