@@ -84,7 +84,7 @@ function countFlips(array) {
       tailCount += 1;
   }
 }
-  return {heads: headCount,tails: tailCount}
+  return {"heads": headCount,"tails": tailCount}
 }
 
 /** Flip a coin!
