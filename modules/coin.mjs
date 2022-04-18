@@ -49,7 +49,7 @@ function coinFlips(flips) {
 
   for (var i = 0; i < flips; i ++) {
     var random = Math.random()
-    if (random<0.5) {
+    if (random < 0.5) {
       array[i] = "heads"
     }
     else {

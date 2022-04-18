@@ -11,5 +11,8 @@
   },
   "author": "Colin Liebe",
   "license": "GPL-3.0-or-later",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "minimist": "^1.2.5"
+  }
 }
