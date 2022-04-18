@@ -6,4 +6,4 @@ const number = args.number || 1
 
 const result = coinFlips(args.number);
 console.log(result);
-console.log(countFlips(result));
+//console.log(countFlips(result));
