@@ -73,12 +73,12 @@ function coinFlips(flips) {
  */
 
 function countFlips(array) {
-  var hNum = 0;
+  var headCount = 0;
   var tailCount = 0;
 
   for (var i = 0; i < array.length; i++) {
     if(array[i] == "heads") {
-      headCount += 1;
+      headCount +=1;
     } else {
       tailCount += 1;
   }

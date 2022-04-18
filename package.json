@@ -6,13 +6,13 @@
   "scripts": {
     "flip": "node flip.js",
     "flips": "node flips.js",
-    "guess": "node guess-flip.js", 
+    "guess": "node guess-flip.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Colin Liebe",
   "license": "GPL-3.0-or-later",
   "type": "module",
   "dependencies": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.6"
   }
 }
