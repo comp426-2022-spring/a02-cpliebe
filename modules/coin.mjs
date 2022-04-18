@@ -45,17 +45,12 @@
  */
 
 function coinFlips(flips) {
-  const results = []
-  for (var i = 0; i < flips; i ++) {
-    var random = Math.random()
-    if (random < 0.5) {
-       results.push("heads")
-    }
-    else {
-      results.push("tails")
-    }
+    if (flips<0||flips==0||typeof flips==="undefined"){flips = 1};
+  const results = [];
+  for (var i = 0; i < flips; i++) {
+    results.push(coinFlip());
   }
-  return results
+  return results;
 }
 
 /** Count multiple flips
@@ -104,6 +99,10 @@ function flipACoin(call) {
   var flip = ""
   var num = Math.random()
 
+  if (call !== "heads" && call !== "tails") {
+    console.log("Error: no input. Usage: node guess-flip -- call=[heads|tails]")
+    return
+  }
   if (num < 0.5) {
     flip = "heads"
   }
