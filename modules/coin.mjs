@@ -116,7 +116,7 @@ function flipACoin(call2) {
   else  {
     outcome = "lose"
   }
-  return {call: call2, flip: flip, results: outcome}
+  return {call: call2, flip: flip, result: outcome}
 }
 
 
