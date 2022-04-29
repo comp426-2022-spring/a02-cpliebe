@@ -8,7 +8,7 @@
       "output": "[\"']?(heads?|tails?)[\"']?",
       "comparison": "regex",
       "timeout": 10,
-      "points": 14000
+      "points": 12500
     },
     {
       "name": "Flip many coins with no argument",
@@ -18,7 +18,7 @@
       "output": "(\\[?\\s?['\"]?(heads|tails)['\"]?.*\\])(\\n|\\t|\\s|\\r)+(\\{.*\\s?['\"]?(heads|tails)\\s?['\"]?:\\s?['\"]?1['\"]?\\s?\\})",
       "comparison": "regex",
       "timeout": 10,
-      "points": 13000
+      "points": 12500
     },
     {
       "name": "Flip many coins with random number argument",
@@ -28,7 +28,7 @@
       "output": "\\{(\\s?['\"]?(heads|tails)\\s?['\"]?:\\s?['\"]?[0-9]{1,3}['\"]?\\s?,)?\\s?['\"]?(heads|tails)\\s?['\"]?:\\s?['\"]?[0-9]{1,3}['\"]?\\s?\\}",
       "comparison": "regex",
       "timeout": 10,
-      "points": 13400
+      "points": 12500
     },
     {
       "name": "Guess coin flip with no argument",
@@ -38,7 +38,7 @@
       "output": ".*[Ee]rror\\s?:?\\s?no\\sinput.*",
       "comparison": "regex",
       "timeout": 10,
-      "points": 8000
+      "points": 12500
     },
     {
       "name": "Guess flip with argument other than heads or tails",
@@ -48,7 +48,7 @@
       "output": ".*Usage:\\s?node\\sguess-flip(.js)?\\s--call=(\\[|\\(|\\{)?\\s?(heads?|tails?)\\s?\\|\\s?[\"']?(heads?|tails?)[\"']?\\s?(\\]|\\)\\}).*",
       "comparison": "regex",
       "timeout": 10,
-      "points": 13028
+      "points": 12500
     },
     {
       "name": "Guess flip heads or tails",
@@ -58,7 +58,17 @@
       "output": "(\\[|\\{)\\s?[\"']?call[\"']?\\s?:\\s?[\"']?(heads?|tails?)[\"']?\\s?,\\s?[\"']?flip[\"']?\\s?:\\s?[\"']?(heads?|tails?)[\"']?\\s?,\\s?[\"']?results?[\"']?\\s?:\\s?[\"']?(win|lose)[\"']?\\s?(\\]|\\})",
       "comparison": "regex",
       "timeout": 10,
-      "points": 13000
+      "points": 12500
+    },
+    {
+      "name": "Node version",
+      "setup": "",
+      "run": "node -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
     }
   ]
 }
