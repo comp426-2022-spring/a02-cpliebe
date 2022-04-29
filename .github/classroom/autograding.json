@@ -15,7 +15,7 @@
       "setup": "npm install",
       "run": "node flips.js",
       "input": "",
-      "output": "(\\[?\\s?['\"]?(heads|tails)['\"]?.*\\])(\\n|\\t|\\s|\\r)+(\\{.*\\s?['\"]?(heads|tails)\\s?['\"]?:\\s?['\"]?1['\"]?\\s?\\})",
+      "output": "(\\[?\\s?['\"]?(heads|tails)['\"]?.*\\])(\\n|\\t|\\s|\\r)+(\\{.*\\s?['\"]?(heads|tails)\\s?['\"]?:\\s?['\"]?1['\"]?.*?\\s?\\})",
       "comparison": "regex",
       "timeout": 10,
       "points": 12500
